@@ -25,7 +25,7 @@ with app.app_context():
 # ユーザー全件取得
 @app.route('/users', methods=['GET'])
 def get_users():
-    users = User.query.all()
+    users: list[User] = User.query.all()
     return jsonify([user.to_dict() for user in users])
 
 # ユーザー追加
