@@ -1,5 +1,6 @@
 from app import create_app, db
 
+# Flaskアプリの生成
 app = create_app()
 
 # DBの初期化  

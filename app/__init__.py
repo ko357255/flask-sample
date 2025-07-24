@@ -14,12 +14,12 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # SQLAlchemyの追跡をオフ
 
     # DBと連携
-    # 循環参照してしまうので、関数の中でインポートを行う
-    from app.routes import bp
     db.init_app(app)
     
+    # 循環参照してしまうので、関数の中でインポートを行う
+    from app.routes.user import user_bp
     # ルートのブループリントの登録
-    app.register_blueprint(bp)
+    app.register_blueprint(user_bp)
     
     return app
     
