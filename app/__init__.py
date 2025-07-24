@@ -18,8 +18,10 @@ def create_app():
     
     # 循環参照してしまうので、関数の中でインポートを行う
     from app.routes.user import user_bp
+    from app.routes.post import post_bp
     # ルートのブループリントの登録
     app.register_blueprint(user_bp)
+    app.register_blueprint(post_bp)
     
     return app
     
